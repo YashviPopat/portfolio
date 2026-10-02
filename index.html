@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Yashvi Popat - AI engineer building computer vision, RAG and agent systems that run in production. Available for freelance and contract work.">
+<meta name="author" content="Yashvi Popat">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Yashvi Popat - AI Engineer">
+<meta property="og:description" content="Yashvi Popat - AI engineer building computer vision, RAG and agent systems that run in production. Available for freelance and contract work.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<style>html{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Yashvi Popat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root{
+    --paper:#ECEEF0;
+    --surface:#FAFBFB;
+    --surface-2:#E2E5E9;
+    --ink:#141A21;
+    --ink-2:#46505C;
+    --ink-3:#6E7988;
+    --rule:#C7CDD4;
+    --rule-soft:#D9DEE3;
+    --nir:#BE2C63;
+    --nir-soft:rgba(190,44,99,.10);
+    --water:#176F82;
+    --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+    --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Consolas,monospace;
+    --gutter:clamp(18px,5vw,56px);
+    --maxw:1120px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#0C1014;
+      --surface:#141A21;
+      --surface-2:#1D252E;
+      --ink:#E6EAEE;
+      --ink-2:#A6B1BD;
+      --ink-3:#808C98;
+      --rule:#2B343E;
+      --rule-soft:#222A33;
+      --nir:#F1548D;
+      --nir-soft:rgba(241,84,141,.13);
+      --water:#4EB6C9;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0C1014;
+    --surface:#141A21;
+    --surface-2:#1D252E;
+    --ink:#E6EAEE;
+    --ink-2:#A6B1BD;
+    --ink-3:#808C98;
+    --rule:#2B343E;
+    --rule-soft:#222A33;
+    --nir:#F1548D;
+    --nir-soft:rgba(241,84,141,.13);
+    --water:#4EB6C9;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .sheet{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gutter);padding-block:0}
+
+  /* ---- shared type ---- */
+  .tag{
+    font-family:var(--mono);font-size:11px;font-weight:500;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+  }
+  h1,h2,h3,h4{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.015em}
+  p{margin:0}
+  a{color:inherit}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--nir);outline-offset:3px;border-radius:2px}
+
+  /* ============ HEADER ============ */
+  .topbar{
+    border-bottom:1px solid var(--rule);
+  }
+  .topbar .sheet{
+    display:flex;flex-wrap:wrap;gap:10px 22px;align-items:baseline;
+    padding-block:14px;
+  }
+  .topbar .mark{
+    font-family:var(--display);font-weight:700;font-size:14px;
+    letter-spacing:.04em;text-transform:uppercase;
+  }
+  .topbar nav{display:flex;flex-wrap:wrap;gap:4px 18px;margin-left:auto}
+  .topbar nav a{
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-3);text-decoration:none;
+  }
+  .topbar nav a:hover{color:var(--nir)}
+
+  /* ============ HERO ============ */
+  .hero{border-bottom:1px solid var(--rule)}
+  .hero .sheet{
+    display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(28px,5vw,64px);
+    padding-block:clamp(40px,7vw,76px) clamp(34px,5vw,56px);align-items:center;
+  }
+  .avail{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--nir);border:1px solid var(--nir);padding:5px 11px;
+  }
+  .avail i{width:6px;height:6px;background:var(--nir);border-radius:50%;flex:none}
+  h1{
+    font-size:clamp(40px,8.2vw,74px);line-height:.95;font-weight:700;
+    letter-spacing:-.035em;margin:20px 0 0;
+  }
+  .role{
+    font-family:var(--display);font-weight:500;font-size:clamp(15px,2.2vw,19px);
+    letter-spacing:-.005em;color:var(--nir);margin-top:14px;line-height:1.3;
+  }
+  .lede{
+    font-size:clamp(16px,2.1vw,18.5px);color:var(--ink-2);
+    margin-top:18px;max-width:50ch;
+  }
+  .lede strong{color:var(--ink);font-weight:600}
+  .facts{
+    display:flex;flex-wrap:wrap;gap:6px 0;margin-top:24px;
+    border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);
+    padding-block:12px;
+  }
+  .facts span{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--ink-3);
+    padding-right:16px;margin-right:16px;border-right:1px solid var(--rule);
+  }
+  .facts span:last-child{border-right:0;margin-right:0;padding-right:0}
+  .facts b{color:var(--ink);font-weight:600}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .btn{
+    font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    text-decoration:none;padding:12px 20px;border:1px solid var(--ink);
+    display:inline-block;transition:background .15s,color .15s,border-color .15s;
+  }
+  .btn-solid{background:var(--ink);color:var(--paper)}
+  .btn-solid:hover{background:var(--nir);border-color:var(--nir);color:#fff}
+  .btn-ghost{color:var(--ink);border-color:var(--rule)}
+  .btn-ghost:hover{border-color:var(--nir);color:var(--nir)}
+
+  /* ---- detection plate ---- */
+  .plate{width:100%;max-width:100%;height:auto;display:block}
+  .plate-wrap{position:relative}
+  .plate-cap{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+    color:var(--ink-3);margin-top:10px;text-transform:uppercase;
+  }
+  @keyframes blip{0%,100%{opacity:1}50%{opacity:.25}}
+  .pulse{animation:blip 2.6s ease-in-out infinite}
+  @media (prefers-reduced-motion:reduce){.pulse{animation:none}}
+
+  /* ============ SECTION SCAFFOLD ============ */
+  section{border-bottom:1px solid var(--rule)}
+  .block{
+    display:grid;grid-template-columns:132px 1fr;gap:clamp(20px,4vw,48px);
+    padding-block:clamp(44px,6vw,72px);
+  }
+  .rail{position:sticky;top:20px;align-self:start}
+  .rail .code{display:block;color:var(--nir);margin-bottom:4px}
+  h2{
+    font-size:clamp(26px,4.2vw,36px);font-weight:700;letter-spacing:-.025em;line-height:1.05;
+  }
+  .sub{color:var(--ink-2);margin-top:12px;max-width:62ch}
+
+  /* ============ SERVICES ============ */
+  .services{margin-top:34px;display:flex;flex-direction:column}
+  .svc{
+    display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(16px,3vw,40px);
+    padding-block:26px;border-top:1px solid var(--rule-soft);
+  }
+  .svc:first-child{border-top:1px solid var(--rule)}
+  .svc h3{font-size:20px;font-weight:600;letter-spacing:-.02em}
+  .svc .what{color:var(--ink-2);margin-top:8px;font-size:15.5px}
+  .deliv{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px}
+  .deliv li{
+    position:relative;padding-left:20px;font-size:15.5px;color:var(--ink-2);
+  }
+  .deliv li::before{
+    content:"";position:absolute;left:0;top:.62em;width:9px;height:1px;background:var(--nir);
+  }
+  .proof{
+    margin-top:14px;padding:10px 13px;background:var(--nir-soft);
+    font-family:var(--mono);font-size:11.5px;line-height:1.55;color:var(--ink-2);
+    border-left:2px solid var(--nir);
+  }
+  .proof b{color:var(--ink);font-weight:600}
+
+  /* ============ WORK ============ */
+  .work{margin-top:34px;display:flex;flex-direction:column;gap:0}
+  .proj{
+    border-top:1px solid var(--rule);padding-block:30px;
+    display:grid;grid-template-columns:1fr 1.35fr;gap:clamp(16px,3vw,40px);
+  }
+  .proj-head h3{font-size:22px;font-weight:700;letter-spacing:-.025em;line-height:1.12}
+  .proj-head .kind{margin-top:9px;display:block;color:var(--water)}
+  .proj-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}
+  .proj-links a{
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink);text-decoration:none;border-bottom:1px solid var(--nir);padding-bottom:2px;
+  }
+  .proj-links a:hover{color:var(--nir)}
+  .one-liner{font-size:16.5px;color:var(--ink);margin-bottom:12px}
+  .stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+  .stack span{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-3);
+    border:1px solid var(--rule);padding:3px 8px;white-space:nowrap;
+  }
+  .metric{
+    display:inline-block;font-family:var(--mono);font-size:11.5px;
+    color:var(--nir);letter-spacing:.05em;
+  }
+
+  /* ---- compact archive ---- */
+  .archive{margin-top:40px;border-top:1px solid var(--rule)}
+  .arch-row{
+    display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.5fr) auto;
+    gap:10px 24px;align-items:baseline;padding-block:13px;
+    border-bottom:1px solid var(--rule-soft);
+  }
+  .arch-row h4{font-size:15.5px;font-weight:600;letter-spacing:-.01em}
+  .arch-row p{font-size:14.5px;color:var(--ink-2)}
+  .arch-row a{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-3);text-decoration:none;white-space:nowrap;
+  }
+  .arch-row a:hover{color:var(--nir)}
+
+  /* ============ PUBLICATIONS ============ */
+  .pubs{margin-top:32px;display:flex;flex-direction:column}
+  .pub{
+    padding-block:20px;border-top:1px solid var(--rule);
+    display:grid;grid-template-columns:auto 1fr;gap:4px 22px;
+  }
+  .pub .venue{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--nir);text-transform:uppercase;padding-top:5px}
+  .pub h3{font-size:17.5px;font-weight:600;letter-spacing:-.015em;line-height:1.3}
+  .pub p{color:var(--ink-2);font-size:15px;margin-top:7px;max-width:68ch}
+
+  /* ============ TRACK RECORD ============ */
+  .roles{margin-top:30px;display:flex;flex-direction:column}
+  .role-item{padding-block:24px;border-top:1px solid var(--rule)}
+  .role-top{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline}
+  .role-top h3{font-size:19px;font-weight:600;letter-spacing:-.02em}
+  .role-top .org{color:var(--water);font-family:var(--mono);font-size:12px;letter-spacing:.06em}
+  .role-top .when{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink-3);white-space:nowrap}
+  .role-item ul{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-direction:column;gap:7px}
+  .role-item li{position:relative;padding-left:20px;color:var(--ink-2);font-size:15.5px}
+  .role-item li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:1px;background:var(--rule)}
+  .honors{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+  .honor{
+    flex:1 1 260px;border:1px solid var(--rule);padding:16px 18px;background:var(--surface);
+  }
+  .honor h4{font-size:15px;font-weight:600;letter-spacing:-.01em}
+  .honor p{font-size:14.5px;color:var(--ink-2);margin-top:6px}
+
+  /* ============ STACK ============ */
+  .skills{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0 clamp(20px,4vw,44px)}
+  .skillgroup{padding-block:20px;border-top:1px solid var(--rule)}
+  .skillgroup h3{font-size:12px;font-family:var(--mono);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--nir)}
+  .skillgroup p{margin-top:10px;font-size:15px;color:var(--ink-2);line-height:1.75}
+
+  /* ============ CONTACT ============ */
+  .contact .block{padding-block:clamp(48px,7vw,84px)}
+  .contact h2{font-size:clamp(30px,5.4vw,46px)}
+  .contact .sub{font-size:17px;margin-top:16px}
+  .lines{margin-top:30px;border-top:1px solid var(--rule)}
+  .line{
+    display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline;
+    padding-block:14px;border-bottom:1px solid var(--rule-soft);
+  }
+  .line .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);min-width:88px}
+  .line .v{font-family:var(--mono);font-size:15px;color:var(--ink);text-decoration:none;word-break:break-word}
+  .line a.v:hover{color:var(--nir)}
+
+  footer .sheet{
+    display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;
+    padding-block:22px;
+  }
+  footer span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:860px){
+    .hero .sheet{grid-template-columns:1fr;gap:34px}
+    .block{grid-template-columns:1fr;gap:18px}
+    .rail{position:static}
+    .rail .code{display:inline;margin-right:10px}
+    .svc,.proj{grid-template-columns:1fr;gap:16px}
+    .arch-row{grid-template-columns:1fr;gap:4px}
+    .pub{grid-template-columns:1fr;gap:8px}
+    .pub .venue{padding-top:0}
+    .role-top .when{margin-left:0;width:100%}
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="sheet">
+    <span class="mark">Yashvi Popat</span>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#research">Research</a>
+      <a href="#record">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="sheet">
+    <div>
+      <span class="avail"><i></i>Available for freelance &amp; contract</span>
+      <h1>AI systems that hold up outside the notebook.</h1>
+      <p class="role">Computer vision, RAG and agent engineering — built to ship, measured under failure.</p>
+      <p class="lede">I'm an AI engineer in Ahmedabad who builds <strong>detection pipelines, retrieval systems and multi-step agents</strong> that run in production, not just in a demo. Three peer-reviewed papers on YOLO-based detection for aerial and remote-sensing imagery, and production deployments in healthcare billing and voice scheduling.</p>
+      <div class="facts">
+        <span><b>3</b> peer-reviewed papers</span>
+        <span><b>IEEE JSTARS</b> · Springer</span>
+        <span>B.Tech CSE · CGPA <b>9.13</b></span>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="mailto:yashvimj13@gmail.com?subject=Freelance%20project%20enquiry">Start a project</a>
+        <a class="btn btn-ghost" href="#work">See the work</a>
+      </div>
+    </div>
+
+    <div class="plate-wrap">
+      <svg class="plate" viewBox="0 0 520 390" role="img" aria-label="Stylised aerial detection frame showing three tracked objects with confidence scores, one escalated to a vision-language model for review.">
+        <defs>
+          <pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">
+            <path d="M26 0 L0 0 0 26" fill="none" stroke="var(--rule-soft)" stroke-width="1"/>
+          </pattern>
+        </defs>
+
+        <rect x="16" y="16" width="488" height="318" fill="var(--surface)"/>
+        <rect x="16" y="16" width="488" height="318" fill="url(#grid)"/>
+        <rect x="16" y="16" width="488" height="318" fill="none" stroke="var(--rule)" stroke-width="1"/>
+
+        <!-- corner registration marks -->
+        <g stroke="var(--ink-3)" stroke-width="1" fill="none">
+          <path d="M16 40 L16 16 L40 16"/>
+          <path d="M480 16 L504 16 L504 40"/>
+          <path d="M504 310 L504 334 L480 334"/>
+          <path d="M40 334 L16 334 L16 310"/>
+        </g>
+
+        <!-- horizon + terrain hint -->
+        <path d="M16 236 L140 222 L242 244 L352 214 L504 238" fill="none" stroke="var(--rule)" stroke-width="1.2"/>
+        <path d="M16 236 L140 222 L242 244 L352 214 L504 238 L504 334 L16 334 Z" fill="var(--surface-2)" opacity=".55"/>
+
+        <!-- reticle -->
+        <g stroke="var(--ink-3)" stroke-width="1" fill="none" opacity=".8">
+          <circle cx="260" cy="175" r="20"/>
+          <path d="M260 145 L260 160 M260 190 L260 205 M230 175 L245 175 M275 175 L290 175"/>
+        </g>
+
+        <!-- detection 1: confirmed UAV -->
+        <g>
+          <rect x="88" y="92" width="86" height="58" fill="none" stroke="var(--nir)" stroke-width="1.6"/>
+          <rect x="88" y="78" width="86" height="14" fill="var(--nir)"/>
+          <text x="93" y="88.5" font-family="IBM Plex Mono, monospace" font-size="9" fill="#fff" letter-spacing=".5">UAV 0.94 · id07</text>
+          <circle cx="131" cy="121" r="2.4" fill="var(--nir)"/>
+          <path d="M131 121 L168 148 L208 162" fill="none" stroke="var(--nir)" stroke-width="1" stroke-dasharray="3 3" opacity=".75"/>
+        </g>
+
+        <!-- detection 2: escalated to VLM -->
+        <g class="pulse">
+          <rect x="332" y="118" width="74" height="52" fill="none" stroke="var(--water)" stroke-width="1.6" stroke-dasharray="5 4"/>
+          <rect x="332" y="104" width="74" height="14" fill="var(--water)"/>
+          <text x="337" y="114.5" font-family="IBM Plex Mono, monospace" font-size="9" fill="#fff" letter-spacing=".5">? 0.58 → VLM</text>
+        </g>
+
+        <!-- detection 3: small, far -->
+        <g>
+          <rect x="208" y="268" width="44" height="30" fill="none" stroke="var(--nir)" stroke-width="1.3"/>
+          <rect x="208" y="256" width="44" height="12" fill="var(--nir)"/>
+          <text x="212" y="265" font-family="IBM Plex Mono, monospace" font-size="8" fill="#fff" letter-spacing=".4">0.88 id12</text>
+        </g>
+
+        <!-- scale bar -->
+        <g>
+          <path d="M400 310 L464 310 M400 306 L400 314 M432 307 L432 313 M464 306 L464 314" stroke="var(--ink-2)" stroke-width="1" fill="none"/>
+          <text x="400" y="302" font-family="IBM Plex Mono, monospace" font-size="8" fill="var(--ink-3)" letter-spacing=".6">250 m</text>
+        </g>
+
+        <!-- telemetry strip -->
+        <text x="16" y="358" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-3)" letter-spacing=".9">RTSP 1920×1080 · 30 fps · YOLO11 + ByteTrack</text>
+        <text x="16" y="376" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-3)" letter-spacing=".9">P 0.98 · R 0.96 · ESCALATED 1/3 · p95 LATENCY</text>
+        <text x="504" y="376" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--nir)" letter-spacing=".9">SKYEYE-NEXT</text>
+      </svg>
+      <p class="plate-cap">Fig. 1 — Confidence-gated cascade: only ambiguous tracks escalate to the VLM.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SERVICES ===================== -->
+<section id="services">
+  <div class="sheet block">
+    <div class="rail">
+      <span class="tag code">01</span>
+      <span class="tag">Services</span>
+    </div>
+    <div>
+      <h2>What I build for clients</h2>
+      <p class="sub">Three kinds of work, each taken from scoping through to a deployed service you own — containerised, documented, and with the evaluation harness that proves it works.</p>
+
+      <div class="services">
+        <div class="svc">
+          <div>
+            <h3>Computer vision &amp; detection</h3>
+            <p class="what">Detection, tracking and extraction pipelines for video streams, aerial imagery and scanned documents.</p>
+          </div>
+          <div>
+            <ul class="deliv">
+              <li>Dataset preparation, annotation review and class design</li>
+              <li>YOLOv8 / YOLO11 training, tuning and comparative evaluation</li>
+              <li>Multi-object tracking with ByteTrack and Kalman filtering</li>
+              <li>FastAPI inference service, Dockerised, with a live operator view</li>
+              <li>Fault-injection testing: fog, blur, low light, frame drop, occlusion</li>
+            </ul>
+            <p class="proof"><b>In production:</b> a YOLOv8 pipeline that reads handwritten marks off scanned medical superbills, replacing manual review in a live billing workflow.</p>
+          </div>
+        </div>
+
+        <div class="svc">
+          <div>
+            <h3>RAG &amp; document intelligence</h3>
+            <p class="what">Retrieval systems that answer from your own documents and stay auditable when they do.</p>
+          </div>
+          <div>
+            <ul class="deliv">
+              <li>Ingestion, chunking and embedding strategy for messy real documents</li>
+              <li>Hybrid retrieval — dense vectors plus keyword search, FAISS or OpenAI Vector Stores</li>
+              <li>Validated text-to-SQL over your existing database</li>
+              <li>Knowledge-graph relationships in Neo4j where structure matters</li>
+              <li>Retrieval evaluation, so accuracy is a number rather than a feeling</li>
+            </ul>
+            <p class="proof"><b>Delivered:</b> enterprise RAG proof-of-concepts at MSBC Group on OpenAI Vector Stores and FAISS — improved retrieval accuracy, reduced query latency.</p>
+          </div>
+        </div>
+
+        <div class="svc">
+          <div>
+            <h3>AI agents &amp; automation</h3>
+            <p class="what">Multi-step agents that complete the task and hand back structured output — not a chat window.</p>
+          </div>
+          <div>
+            <ul class="deliv">
+              <li>Multi-agent pipelines with strict JSON contracts between stages</li>
+              <li>Telephony, email and messaging integration — Telnyx, Twilio, Microsoft Graph</li>
+              <li>Low-latency voice agents with secure webhook validation and session handling</li>
+              <li>Document generation to DOCX and PDF with embedded diagrams</li>
+              <li>Web automation and scraping pipelines with n8n and Selenium</li>
+            </ul>
+            <p class="proof"><b>In production:</b> a voice AI agent on Telnyx and FastAPI handling low-latency appointment scheduling.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WORK ===================== -->
+<section id="work">
+  <div class="sheet block">
+    <div class="rail">
+      <span class="tag code">02</span>
+      <span class="tag">Selected work</span>
+    </div>
+    <div>
+      <h2>Selected work</h2>
+      <p class="sub">Six projects that show the range — a dependability-tested perception stack, two retrieval systems, a document generator, and two agent pipelines.</p>
+
+      <div class="work">
+
+        <article class="proj">
+          <div class="proj-head">
+            <h3>SkyEye-Next</h3>
+            <span class="tag kind">Counter-UAS perception · VLM reasoning</span>
+            <div class="proj-links"><a href="mailto:yashvimj13@gmail.com?subject=SkyEye-Next%20walkthrough">Request a walkthrough</a></div>
+          </div>
+          <div>
+            <p class="one-liner">An end-to-end aerial threat detection pipeline that knows when it doesn't know — and asks for help instead of guessing.</p>
+            <ul class="deliv">
+              <li>RTSP and thermal ingest → YOLO11 detector → Kalman/ByteTrack tracker → temporal motion features → threat policy → ROS 2 / PX4 bridge</li>
+              <li>A confidence-gated cascade escalates only ambiguous tracks — temperature-scaled calibration, class-flip detection, Mahalanobis OOD scoring on motion signatures — to a vision-language model, cutting VLM calls to <span class="metric">once per track</span></li>
+              <li>Strict JSON verdicts with a fail-safe "human review" path, so the system never fabricates a classification</li>
+              <li>Live FastAPI operator dashboard: MJPEG streaming, fault-injection controls, and natural-language queries over track history via validated text-to-SQL</li>
+              <li>Dependability harness with a ground-truth sky simulator and 9 fault presets — <span class="metric">0.98 precision / 0.96 recall sustained across all faults</span>, with 25 automated tests</li>
+            </ul>
+            <div class="stack"><span>PyTorch</span><span>Ultralytics YOLO11</span><span>OpenCV</span><span>ByteTrack</span><span>Qwen2.5-VL</span><span>FastAPI</span><span>ROS 2</span><span>PostgreSQL</span><span>Docker</span></div>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="proj-head">
+            <h3>Gujarat News Intelligence</h3>
+            <span class="tag kind">Relevance engine · structured LLM output</span>
+            <div class="proj-links"><a href="https://github.com/YashviPopat/News_Scrapper">View repository</a></div>
+          </div>
+          <div>
+            <p class="one-liner">A news scraper that doesn't ask "is this about Gujarat?" — it asks "could this be useful for Gujarat?"</p>
+            <ul class="deliv">
+              <li>Scrapes national and regional feeds, then scores every article against a structured Gujarat knowledge profile — climate, crops, economy, cities, departments, live programmes</li>
+              <li>A Maharashtra traffic-AI policy scores high (Ahmedabad has the same problem and the infrastructure to adopt it); a Kerala rubber subsidy scores near zero (semi-arid Gujarat grows cotton, not rubber)</li>
+              <li>Returns a strict JSON verdict per article: relevance type, domain, transferability reasoning, responsible departments, and 0–100 feasibility, benefit, urgency and cost scores</li>
+              <li>Degrades gracefully to a keyword heuristic with no API key, so the product still works end to end</li>
+            </ul>
+            <div class="stack"><span>Python</span><span>FastAPI</span><span>Claude structured output</span><span>feedparser</span><span>SQLite</span><span>Docker</span></div>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="proj-head">
+            <h3>SRS Dynamic Generator</h3>
+            <span class="tag kind">Document automation · diagram synthesis</span>
+            <div class="proj-links"><a href="https://github.com/YashviPopat/SRS-Generator">View repository</a></div>
+          </div>
+          <div>
+            <p class="one-liner">Turns meeting notes into a complete, diagrammed software requirements specification you can hand to a client.</p>
+            <ul class="deliv">
+              <li>Generates full SRS sections from uploaded meeting summaries and documents, with per-section custom prompts</li>
+              <li>Synthesises Mermaid diagrams for system architecture, sequence flows and database schemas — editable with live preview</li>
+              <li>Exports a professional DOCX with diagrams embedded, plus PNG, SVG, XML and Mermaid source</li>
+              <li>FastAPI backend with a React editor front end</li>
+            </ul>
+            <div class="stack"><span>FastAPI</span><span>React</span><span>Google Gemini</span><span>Mermaid</span><span>python-docx</span></div>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="proj-head">
+            <h3>Personalized Email Assistant</h3>
+            <span class="tag kind">Hybrid retrieval · graph relationships</span>
+            <div class="proj-links"><a href="mailto:yashvimj13@gmail.com?subject=Email%20Assistant%20walkthrough">Private repo — ask for a demo</a></div>
+          </div>
+          <div>
+            <p class="one-liner">Real-time triage across an Outlook mailbox, with sender and thread relationships modelled as a graph.</p>
+            <ul class="deliv">
+              <li>Classifies and retrieves mail live over the Microsoft Graph API with a WebSocket push layer</li>
+              <li>Hybrid semantic search — dense vector retrieval combined with keyword search — to pull contextual insight out of long threads</li>
+              <li>Sender and thread relationships modelled in Neo4j, so "who else was involved in this" is a traversal rather than a guess</li>
+            </ul>
+            <div class="stack"><span>Microsoft Graph API</span><span>Neo4j</span><span>FAISS</span><span>WebSockets</span><span>TypeScript</span></div>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="proj-head">
+            <h3>Hybrid Document Query</h3>
+            <span class="tag kind">Natural-language retrieval over documents</span>
+            <div class="proj-links"><a href="https://github.com/YashviPopat/NLP_query">View repository</a></div>
+          </div>
+          <div>
+            <p class="one-liner">Ask a plain-English question; get an answer grounded in your document set and your database.</p>
+            <ul class="deliv">
+              <li>Hybrid retrieval combining semantic search with keyword matching, backed by a document cache for repeat queries</li>
+              <li>FastAPI service layer with a typed model and API split, plus a browser front end</li>
+              <li>A standalone test suite covering the hybrid path end to end</li>
+            </ul>
+            <div class="stack"><span>Python</span><span>FastAPI</span><span>Google Gemini</span><span>Vector search</span><span>JavaScript</span></div>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="proj-head">
+            <h3>AI-Driven Meal Planner</h3>
+            <span class="tag kind">Multi-agent pipeline · WhatsApp delivery</span>
+            <div class="proj-links"><a href="mailto:yashvimj13@gmail.com?subject=Meal%20Planner%20walkthrough">Private repo — ask for a demo</a></div>
+          </div>
+          <div>
+            <p class="one-liner">A profile goes in; nutrition targets, recipes, a costed shopping list and plated dish images come out — on WhatsApp.</p>
+            <ul class="deliv">
+              <li>Multi-agent pipeline converts user profiles into nutrition targets, then generates recipes, shopping lists and pricing estimates</li>
+              <li>Dish images generated with Google Gemini and delivered through Cloudinary</li>
+              <li>Structured outputs persisted to MongoDB Atlas for end-to-end traceability</li>
+              <li>Streamlit interface with a Twilio WhatsApp notification layer</li>
+            </ul>
+            <div class="stack"><span>Agno agents</span><span>Google Gemini</span><span>Streamlit</span><span>MongoDB Atlas</span><span>Cloudinary</span><span>Twilio</span></div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="archive">
+        <p class="tag" style="padding-block:16px 4px">Also in the archive</p>
+        <div class="arch-row">
+          <h4>Brain Tumor Segmentation</h4>
+          <p>U-Net, V-Net and SegNet compared on MRI segmentation; U-Net gave the most reliable boundaries.</p>
+          <a href="https://github.com/YashviPopat/Brain-Tumor-Segmentation">Repo →</a>
+        </div>
+        <div class="arch-row">
+          <h4>News Analysis System</h4>
+          <p>Bilingual English/Hindi sentiment scoring plus real-or-fake classification, clustered for pattern analysis on a Streamlit dashboard.</p>
+          <a href="https://github.com/YashviPopat/News-Analysis-System">Repo →</a>
+        </div>
+        <div class="arch-row">
+          <h4>Counseling Session Agent</h4>
+          <p>Extracts goals and action items from counsellor transcripts with LLaMA 3 on Groq, then drafts and sends the follow-up email.</p>
+          <a href="https://github.com/YashviPopat/AI-Agent-for-Counseling-Session-Summary-Follow-up-Email">Repo →</a>
+        </div>
+        <div class="arch-row">
+          <h4>Pose Estimation</h4>
+          <p>32-keypoint body tracking with MediaPipe, including 3D pose view and skeletal overlays for single and multi-person video.</p>
+          <a href="https://github.com/YashviPopat/Pose-Estimation">Repo →</a>
+        </div>
+        <div class="arch-row">
+          <h4>ArUco Marker Detection</h4>
+          <p>Real-time marker detection and pose tracking with camera calibration — the basis for AR overlays and robot navigation.</p>
+          <a href="https://github.com/YashviPopat/Aruco-Marker-Detection">Repo →</a>
+        </div>
+        <div class="arch-row">
+          <h4>Stock Price Prediction (LSTM)</h4>
+          <p>Time-series forecasting on historical price data with a stacked LSTM.</p>
+          <a href="https://github.com/YashviPopat/Stock_Price_Prediction_using_LSTM">Repo →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESEARCH ===================== -->
+<section id="research">
+  <div class="sheet block">
+    <div class="rail">
+      <span class="tag code">03</span>
+      <span class="tag">Research</span>
+    </div>
+    <div>
+      <h2>Peer-reviewed publications</h2>
+      <p class="sub">Three papers, all 2025, on YOLO-based detection for overhead and remote-sensing imagery — the same methods that underpin the detection work I take on commercially.</p>
+
+      <div class="pubs">
+        <div class="pub">
+          <span class="venue">IEEE JSTARS</span>
+          <div>
+            <h3>Land Cover Classification for Identifying Agricultural Fields Using Versions of YOLOv8</h3>
+            <p>A comparative evaluation of YOLOv8 variants for object detection on overhead remote-sensing imagery. Published in the IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2025.</p>
+          </div>
+        </div>
+        <div class="pub">
+          <span class="venue">IEEE · 2025</span>
+          <div>
+            <h3>Multi-Class Event Classification using YOLOv8</h3>
+          </div>
+        </div>
+        <div class="pub">
+          <span class="venue">Springer · 2025</span>
+          <div>
+            <h3>Deep Learning Algorithms for Multi-Class War Event Classification</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RECORD ===================== -->
+<section id="record">
+  <div class="sheet block">
+    <div class="rail">
+      <span class="tag code">04</span>
+      <span class="tag">Experience</span>
+    </div>
+    <div>
+      <h2>Track record</h2>
+      <p class="sub">Production AI work inside two companies, alongside a B.Tech in Computer Science and Engineering at CHARUSAT.</p>
+
+      <div class="roles">
+        <div class="role-item">
+          <div class="role-top">
+            <h3>AI Automation Engineer</h3>
+            <span class="org">Meditab Software Inc Ltd, Ahmedabad</span>
+            <span class="when">Nov 2025 — Present</span>
+          </div>
+          <ul>
+            <li>Built and deployed a production voice AI agent on Telnyx and FastAPI for low-latency appointment scheduling, with secure webhook validation and session handling.</li>
+            <li>Developed a YOLOv8 computer vision pipeline that detects and extracts handwritten marks from scanned medical superbills, replacing manual review in the billing workflow.</li>
+            <li>Designed and deployed scalable web automation pipelines for WebIPS.</li>
+          </ul>
+        </div>
+        <div class="role-item">
+          <div class="role-top">
+            <h3>Artificial Intelligence Intern</h3>
+            <span class="org">MSBC Group, Ahmedabad</span>
+            <span class="when">Jul 2025 — Oct 2025</span>
+          </div>
+          <ul>
+            <li>Delivered enterprise AI proof-of-concepts, designing and optimising end-to-end RAG pipelines on OpenAI Vector Stores and FAISS — improving retrieval accuracy and cutting query latency.</li>
+          </ul>
+        </div>
+        <div class="role-item">
+          <div class="role-top">
+            <h3>B.Tech, Computer Science &amp; Engineering</h3>
+            <span class="org">Charotar University of Science and Technology</span>
+            <span class="when">2022 — 2026 · CGPA 9.13</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="honors">
+        <div class="honor">
+          <h4>Second Runners-Up — Breach Hackathon 2025, PDEU</h4>
+          <p>Built geofencing and live location tracking with Leaflet.js for an EV ride-management system.</p>
+        </div>
+        <div class="honor">
+          <h4>Research Paper Award of the Year, 2023</h4>
+          <p>For the review paper <em>"Review of Management System and State-of-Charge Estimation Methods for Electric Vehicles."</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STACK ===================== -->
+<section id="stack">
+  <div class="sheet block">
+    <div class="rail">
+      <span class="tag code">05</span>
+      <span class="tag">Stack</span>
+    </div>
+    <div>
+      <h2>Tools I work in</h2>
+      <div class="skills">
+        <div class="skillgroup">
+          <h3>Languages</h3>
+          <p>Python · C++ · Java · SQL · NoSQL</p>
+        </div>
+        <div class="skillgroup">
+          <h3>ML &amp; computer vision</h3>
+          <p>PyTorch · TensorFlow · Ultralytics YOLO (v8 / v11) · OpenCV · ByteTrack · Kalman filtering · scikit-learn · NumPy · Pandas</p>
+        </div>
+        <div class="skillgroup">
+          <h3>LLM &amp; VLM systems</h3>
+          <p>RAG pipelines · agentic workflows · Qwen2.5-VL · FAISS · vector search · OpenAI Vector Stores · Google Gemini · text-to-SQL</p>
+        </div>
+        <div class="skillgroup">
+          <h3>Backend &amp; infrastructure</h3>
+          <p>FastAPI · Docker · PostgreSQL · MongoDB · Neo4j · ROS 2 · REST APIs · WebSockets</p>
+        </div>
+        <div class="skillgroup">
+          <h3>Tools</h3>
+          <p>Git · Streamlit · n8n · Selenium WebDriver · Matplotlib</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" class="contact">
+  <div class="sheet block">
+    <div class="rail">
+      <span class="tag code">06</span>
+      <span class="tag">Contact</span>
+    </div>
+    <div>
+      <h2>Tell me what you're trying to build.</h2>
+      <p class="sub">Send the problem, not a spec — a rough description of what you need the system to do is enough to start. I'll come back with an approach, a scope and a timeline, and say so plainly if it isn't something I should take on.</p>
+      <div class="lines">
+        <div class="line"><span class="k">Email</span><a class="v" href="mailto:yashvimj13@gmail.com?subject=Freelance%20project%20enquiry">yashvimj13@gmail.com</a></div>
+        <div class="line"><span class="k">Phone</span><a class="v" href="tel:+919712634451">+91 97126 34451</a></div>
+        <div class="line"><span class="k">GitHub</span><a class="v" href="https://github.com/YashviPopat">github.com/YashviPopat</a></div>
+        <div class="line"><span class="k">Based in</span><span class="v">Ahmedabad, India</span></div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="mailto:yashvimj13@gmail.com?subject=Freelance%20project%20enquiry">Email me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="sheet">
+    <span>Yashvi Popat · AI Engineer</span>
+    <span>Computer vision · RAG · Agents</span>
+  </div>
+</footer>
+</body>
+</html>
